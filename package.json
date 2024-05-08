@@ -50,5 +50,5 @@
       "last 1 safari version"
     ]
   },
-  "proxy": "https://shop-it-eko-backend.vercel.app"
+  "proxy": "http://satria.win:4001"
 }
