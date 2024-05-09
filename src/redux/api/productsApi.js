@@ -8,6 +8,10 @@ export const productApi = createApi({
     getProducts: builder.query({
       query: (params) => ({
         url: "/products",
+        headers: {
+          "Access-Control-Allow-Origin": "*",
+          "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+        },
         params: {
           page: params?.page,
           keyword: params?.keyword,
@@ -20,6 +24,10 @@ export const productApi = createApi({
     }),
     getProductDetails: builder.query({
       query: (id) => `/products/${id}`,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
       providesTags: ["Product"],
     }),
     submitReview: builder.mutation({
@@ -34,10 +42,18 @@ export const productApi = createApi({
     }),
     canUserReview: builder.query({
       query: (productId) => `/can_review/?productId=${productId}`,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
     }),
 
     getAdminProducts: builder.query({
       query: () => `/admin/products`,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
       providesTags: ["AdminProducts"],
     }),
     createProduct: builder.mutation({
@@ -47,6 +63,10 @@ export const productApi = createApi({
           method: "POST",
           body,
         };
+      },
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
       },
       invalidatesTags: ["AdminProducts"],
     }),
@@ -58,6 +78,10 @@ export const productApi = createApi({
           body,
         };
       },
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
       invalidatesTags: ["Product", "AdminProducts"],
     }),
     uploadProductImages: builder.mutation({
@@ -67,6 +91,10 @@ export const productApi = createApi({
           method: "PUT",
           body,
         };
+      },
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
       },
       invalidatesTags: ["Product"],
     }),
@@ -78,6 +106,10 @@ export const productApi = createApi({
           body,
         };
       },
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
       invalidatesTags: ["Product"],
     }),
     deleteProduct: builder.mutation({
@@ -87,10 +119,18 @@ export const productApi = createApi({
           method: "DELETE",
         };
       },
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
       invalidatesTags: ["AdminProducts"],
     }),
     getProductReviews: builder.query({
       query: (productId) => `/reviews?id=${productId}`,
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
+      },
       providesTags: ["Reviews"],
     }),
     deleteReview: builder.mutation({
@@ -99,6 +139,10 @@ export const productApi = createApi({
           url: `/admin/reviews?productId=${productId}&id=${id}`,
           method: "DELETE",
         };
+      },
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+        "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept"
       },
       invalidatesTags: ["Reviews"],
     }),
