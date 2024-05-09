@@ -2,7 +2,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const productApi = createApi({
   reducerPath: "productApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "http://satria.win:4000/api/v1" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "https://satria.win:4000/api/v1" }),
   tagTypes: ["Product", "AdminProducts", "Reviews"],
   endpoints: (builder) => ({
     getProducts: builder.query({
