@@ -3,7 +3,7 @@ import { setIsAuthenticated, setLoading, setUser } from "../features/userSlice";
 
 export const userApi = createApi({
   reducerPath: "userApi",
-  baseQuery: fetchBaseQuery({ baseUrl: "https://satria.win:4000/api/v1" }),
+  baseQuery: fetchBaseQuery({ baseUrl: "http://satria.win:4001/api/v1" }),
   tagTypes: ["User", "AdminUsers", "AdminUser"],
   endpoints: (builder) => ({
     getMe: builder.query({
